@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         GitHub Auto-SSO
 // @namespace    https://thom.is/
-// @version      0.2.1
-// @description  Auto-submit SSO form when it appears. Takes browser through Okta flow automatically.
-// @author       Thom Mahoney, Kailan Blanks
+// @version      0.2.2
+// @description  Auto-submit SSO form when it appears. Takes browser through the SSO flow automatically.
+// @author       Thom Mahoney, Kailan Blanks, Joe Shaw
 // @match        https://github.com/*
 // @grant        none
 // ==/UserScript==
@@ -25,6 +25,8 @@
         }
     }, 100);
     // Click SSO prompt on interstitial pages
-    var panel = document.getElementsByClassName("org-sso-panel");
-    if (panel.length > 0) panel[0].getElementsByTagName("button")[0].click();
+    setTimeout(function() {
+        var panel = document.getElementsByClassName("org-sso-panel");
+        if (panel.length > 0) panel[0].getElementsByTagName("button")[0].click();
+    }, 1000);
 })();
