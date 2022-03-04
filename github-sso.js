@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GitHub Auto-SSO
 // @namespace    https://thom.is/
-// @version      0.2.2
+// @version      0.2.3
 // @description  Auto-submit SSO form when it appears. Takes browser through the SSO flow automatically.
 // @author       Thom Mahoney, Kailan Blanks, Joe Shaw
 // @match        https://github.com/*
@@ -10,7 +10,7 @@
 (function() {
     'use strict';
     var getSSOPrompt = function() {
-        var xpath = "//*[@id=\"dashboard\"]/div/div[1]/div/ul/li[1]/div/p/a[text()='Single sign-on']";
+        var xpath = "//a[text()='Single sign-on']";
         return document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     };
     var tries = 0;
